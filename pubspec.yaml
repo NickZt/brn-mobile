@@ -17,6 +17,7 @@ dependencies:
   google_fonts: ^1.1.0
   meta: ^1.1.8
   pedantic: ^1.9.0
+  auto_size_text: ^2.1.0
   authentication_repository:
     path: packages/authentication_repository
 
@@ -29,4 +30,16 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/images/Ellipse76.png
+    - assets/images/Coolkidsstayinghome1.png
+  fonts:
+     - family: Montserrat
+       fonts:
+         - asset: assets/fonts/Montserrat-SemiBold.ttf
+         - asset: assets/fonts/Montserrat-Medium.ttf
+           style: normal
+
+     - family: OpenSans
+       fonts:
+         - asset: assets/fonts/OpenSans-Regular.ttf
+           weight: 400
