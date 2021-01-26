@@ -41,8 +41,8 @@ app.*.symbols
 app.*.map.json
 
 
-app\google-services.json
-web\index.html
+app/google-services.json
+web/index.html
 
 # Android Studio will place build artifacts here
 /android/app/debug
