@@ -304,7 +304,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.2"
+    version: "0.12.1"
   http_multi_server:
     dependency: transitive
     description:
@@ -639,6 +639,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0-nullsafety.3"
+  swagger:
+    dependency: "direct main"
+    description:
+      path: "packages/api_repository"
+      relative: true
+    source: path
+    version: "1.0.0"
   swagger_dart_code_generator:
     dependency: "direct dev"
     description:

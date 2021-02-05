@@ -26,7 +26,8 @@ dependencies:
     path: packages/authentication_repository
   user_repository:
     path: packages/user_repository
-
+  swagger:
+    path: packages/api_repository
 dev_dependencies:
   flutter_test:
     sdk: flutter

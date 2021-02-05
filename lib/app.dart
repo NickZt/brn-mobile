@@ -6,6 +6,7 @@ import 'package:brn_mobile/login/login.dart';
 import 'package:brn_mobile/splash/splash.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:brn_mobile/authentication/authentication.dart';
+import 'package:swagger/api.dart';
 
 class App extends StatelessWidget {
   const App({
