@@ -21,6 +21,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="brn_mobile">
+  <meta name="google-signin-client_id" content="657793908477-7uaqb051kkvb3sf75t9u1557ic8li10f.apps.googleusercontent.com">
+
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -44,14 +46,15 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('flutter-first-frame', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js?v=1457424913');
+        navigator.serviceWorker.register('flutter_service_worker.js?v=1239477089');
       });
     }
   </script>
   <body>
-
+  <meta name="google-signin-client_id" content="657793908477-7uaqb051kkvb3sf75t9u1557ic8li10f.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>r
   <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
