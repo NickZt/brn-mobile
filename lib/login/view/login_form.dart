@@ -1,14 +1,12 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:brn_mobile/login/login.dart';
-import 'package:brn_mobile/sign_up/sign_up.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:formz/formz.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:brn_mobile/login/login.dart';
 
 class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state.status.isSubmissionFailure) {
           Scaffold.of(context)
@@ -20,46 +18,34 @@ class LoginForm extends StatelessWidget {
       },
       child: Align(
         alignment: const Alignment(0, -1 / 3),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                'assets/bloc_logo_small.png',
-                height: 120,
-              ),
-              const SizedBox(height: 16.0),
-              _EmailInput(),
-              const SizedBox(height: 8.0),
-              _PasswordInput(),
-              const SizedBox(height: 8.0),
-              _LoginButton(),
-              const SizedBox(height: 8.0),
-              _GoogleLoginButton(),
-              const SizedBox(height: 4.0),
-              _SignUpButton(),
-            ],
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _UsernameInput(),
+            const Padding(padding: EdgeInsets.all(12)),
+            _PasswordInput(),
+            const Padding(padding: EdgeInsets.all(12)),
+            _LoginButton(),
+          ],
         ),
       ),
     );
   }
 }
 
-class _EmailInput extends StatelessWidget {
+class _UsernameInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
-      buildWhen: (previous, current) => previous.email != current.email,
+    return BlocBuilder<LoginBloc, LoginState>(
+      buildWhen: (previous, current) => previous.username != current.username,
       builder: (context, state) {
         return TextField(
-          key: const Key('loginForm_emailInput_textField'),
-          onChanged: (email) => context.read<LoginCubit>().emailChanged(email),
-          keyboardType: TextInputType.emailAddress,
+          key: const Key('loginForm_usernameInput_textField'),
+          onChanged: (username) =>
+              context.read<LoginBloc>().add(LoginUsernameChanged(username)),
           decoration: InputDecoration(
-            labelText: 'email',
-            helperText: '',
-            errorText: state.email.invalid ? 'invalid email' : null,
+            labelText: 'username',
+            errorText: state.username.invalid ? 'invalid username' : null,
           ),
         );
       },
@@ -70,17 +56,16 @@ class _EmailInput extends StatelessWidget {
 class _PasswordInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
         return TextField(
           key: const Key('loginForm_passwordInput_textField'),
           onChanged: (password) =>
-              context.read<LoginCubit>().passwordChanged(password),
+              context.read<LoginBloc>().add(LoginPasswordChanged(password)),
           obscureText: true,
           decoration: InputDecoration(
             labelText: 'password',
-            helperText: '',
             errorText: state.password.invalid ? 'invalid password' : null,
           ),
         );
@@ -92,56 +77,21 @@ class _PasswordInput extends StatelessWidget {
 class _LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
             : RaisedButton(
                 key: const Key('loginForm_continue_raisedButton'),
-                child: const Text('LOGIN'),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                color: const Color(0xFFFFD600),
+                child: const Text('Login'),
                 onPressed: state.status.isValidated
-                    ? () => context.read<LoginCubit>().logInWithCredentials()
+                    ? () {
+                        context.read<LoginBloc>().add(const LoginSubmitted());
+                      }
                     : null,
               );
       },
-    );
-  }
-}
-
-class _GoogleLoginButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return RaisedButton.icon(
-      key: const Key('loginForm_googleLogin_raisedButton'),
-      label: const Text(
-        'SIGN IN WITH GOOGLE',
-        style: TextStyle(color: Colors.white),
-      ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-      icon: const Icon(FontAwesomeIcons.google, color: Colors.white),
-      color: theme.accentColor,
-      onPressed: () => context.read<LoginCubit>().logInWithGoogle(),
-    );
-  }
-}
-
-class _SignUpButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return FlatButton(
-      key: const Key('loginForm_createAccount_flatButton'),
-      child: Text(
-        'CREATE ACCOUNT',
-        style: TextStyle(color: theme.primaryColor),
-      ),
-      onPressed: () => Navigator.of(context).push<void>(SignUpPage.route()),
     );
   }
 }
