@@ -1,4 +1,5 @@
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:brn_mobile/generated_code/api_docs.swagger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:brn_mobile/home/home.dart';
@@ -6,28 +7,47 @@ import 'package:brn_mobile/login/login.dart';
 import 'package:brn_mobile/splash/splash.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:brn_mobile/authentication/authentication.dart';
-import 'package:swagger/api.dart';
+// import 'package:swagger/api.dart';
 
 class App extends StatelessWidget {
-  const App({
+  App({
     Key key,
     @required this.authenticationRepository,
     @required this.userRepository,
+    @required this.client,
   })  : assert(authenticationRepository != null),
         assert(userRepository != null),
+        assert(client != null),
         super(key: key);
 
   final AuthenticationRepository authenticationRepository;
   final UserRepository userRepository;
+  final ApiDocs client;
 
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
+    var loginCred = LoginDto(
+        grantType: '1', password: '***', username: 'nickifomir@gmail.com');
+    var getResult = client.loginUsingPost(loginDto: loginCred);
+    getResult.then((value) => {
+          if (value.isSuccessful)
+            {
+              print(
+                  'Hello, its result ${value.body.accessToken},  ${value.body.toString()}')
+            }
+          else
+            {
+              print(
+                  'Hello, its errors result ${value.body.toString()},  ${value.body.toString()}')
+            }
+        });
     return RepositoryProvider.value(
       value: authenticationRepository,
       child: BlocProvider(
         create: (_) => AuthenticationBloc(
           authenticationRepository: authenticationRepository,
           userRepository: userRepository,
+            client: client,
         ),
         child: AppView(),
       ),

@@ -22,7 +22,8 @@ abstract class ApiDocs extends ChopperService {
     final newClient = ChopperClient(
         services: [_$ApiDocs()],
         converter: JsonSerializableConverter(),
-        baseUrl: 'https://brn:8081/api');
+        baseUrl: 'http://brainup.site/api/v2');
+    ///https://brn:8081/api
     return _$ApiDocs(newClient);
   }
 
