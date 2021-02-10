@@ -54,6 +54,9 @@ class App extends StatelessWidget {
     );
   }
 }
+// providers: [
+// ChangeNotifierProvider(create: (context) => ProductBloc()),
+
 
 class AppView extends StatefulWidget {
   @override
