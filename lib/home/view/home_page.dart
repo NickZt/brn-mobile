@@ -9,10 +9,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userId = BlocProvider.of<AuthenticationBloc>(context, listen: false)
-        .state
-        .user
-        .id;
+    final userId ="ghggkglkjyhuy BlocProvider.of<LoginBloc>(context,listen: false).add(const LoginSubmitted());";
+        // BlocProvider.of<AuthenticationBloc>(context)
+        // .state
+        // .user
+        // .id;
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
       body: Center(

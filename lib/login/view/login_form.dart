@@ -1,3 +1,4 @@
+import 'package:brn_mobile/Routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -78,7 +79,7 @@ class _PasswordInput extends StatelessWidget {
 class _LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginBloc, LoginState>(
+    return  BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         return state.status.isSubmissionInProgress
@@ -88,7 +89,8 @@ class _LoginButton extends StatelessWidget {
                 child: const Text('Login'),
                 onPressed: state.status.isValidated
                     ? () {
-                        context.read<LoginBloc>().add(const LoginSubmitted());
+                      BlocProvider.of<LoginBloc>(context,listen: false).add(const LoginSubmitted());
+                      Navigator.pushNamed(context, RoutingConstants.homeScreen);
                       }
                     : null,
               );

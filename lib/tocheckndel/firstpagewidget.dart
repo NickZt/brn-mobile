@@ -153,7 +153,7 @@ class _FirstPageWidget extends StatelessWidget {
                                       color: Colors.red,
                                       textColor: Color.fromRGBO(0, 0, 0, 1),
 
-                                      onPressed: () => { Navigator.of(context).pushReplacementNamed(RoutingConstants.loginScreen)},
+                                      onPressed: () => { Navigator.pushNamed(context,RoutingConstants.loginScreen)},
                                       // style: TextStyle(
                                       //     color: Color.fromRGBO(0, 0, 0, 1),
                                       //     backgroundColor: Colors.red,
