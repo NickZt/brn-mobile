@@ -1,12 +1,68 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:brn_mobile/Routes/routes.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class FirstPageWidget extends StatefulWidget {
+import 'widget1.dart';
+
+class FirstPage extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => FirstPage());
+  }
+
   @override
-  _FirstPageWidgetState createState() => _FirstPageWidgetState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Welcome to BrainUp')),
+      body: Container(
+          child: CarouselSlider(
+        options: CarouselOptions(),
+        items: <Widget>[
+          Expanded(
+              child: new CustomScrollView(
+                  // scrollDirection: Axis.vertical,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  slivers: <Widget>[
+                new SliverPadding(
+                  padding: const EdgeInsets.symmetric(vertical: 0.0),
+                  sliver: new SliverList(
+                    delegate: new SliverChildBuilderDelegate(
+                      (context, index) => new _FirstPageWidget(),
+                      //FirstPageWidget
+                      childCount: 1,
+                    ),
+                  ),
+                ),
+                new SliverPadding(
+                  padding: const EdgeInsets.symmetric(vertical: 0.0),
+                  sliver: new SliverList(
+                    delegate: new SliverChildBuilderDelegate(
+                      (context, index) => new _FirstPageWidget(),
+                      //FirstPageWidget
+                      childCount: 1,
+                    ),
+                  ),
+                ),
+                new SliverPadding(
+                  padding: const EdgeInsets.symmetric(vertical: 0.0),
+                  sliver: new SliverList(
+                    delegate: new SliverChildBuilderDelegate(
+                      (context, index) => new GroupAboutWOCamonWidgetSTTLes(),
+                      childCount: 1,
+                    ),
+                  ),
+                ),
+              ]))
+        ],
+      )),
+    );
+  }
 }
 
-class _FirstPageWidgetState extends State<FirstPageWidget> {
+class _FirstPageWidget extends StatelessWidget {
+  final CarouselController _controller = CarouselController();
+
   @override
   Widget build(BuildContext context) {
     // Figma Flutter Generator Group578Widget - GROUP
@@ -93,18 +149,22 @@ class _FirstPageWidgetState extends State<FirstPageWidget> {
                                 child: SizedBox(
                                     width: 338,
                                     height: 48,
-                                    child: Text(
-                                      'Начать',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromRGBO(0, 0, 0, 1),
-                                          backgroundColor: Colors.red,
-                                          fontFamily: 'Montserrat',
-                                          fontSize: 18,
-                                          letterSpacing:
-                                              0 /*percentages not used in flutter. defaulting to zero*/,
-                                          fontWeight: FontWeight.normal,
-                                          height: 1),
+                                    child: RaisedButton(
+                                      color: Colors.red,
+                                      textColor: Color.fromRGBO(0, 0, 0, 1),
+
+                                      onPressed: () => { Navigator.of(context).pushReplacementNamed(RoutingConstants.loginScreen)},
+                                      // style: TextStyle(
+                                      //     color: Color.fromRGBO(0, 0, 0, 1),
+                                      //     backgroundColor: Colors.red,
+                                      //     fontFamily: 'Montserrat',
+                                      //     fontSize: 18,
+                                      //     letterSpacing:
+                                      //     0 /*percentages not used in flutter. defaulting to zero*/,
+                                      //     fontWeight: FontWeight.normal,
+                                      //     height: 1
+                                      // ) ,
+                                      child: Text('Начать'),
                                     )),
                               )
                             ]))),

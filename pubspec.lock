@@ -51,7 +51,7 @@ packages:
     source: hosted
     version: "2.1.0"
   bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: bloc
       url: "https://pub.dartlang.org"
@@ -127,6 +127,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.1.0"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   characters:
     dependency: transitive
     description:
@@ -554,7 +561,7 @@ packages:
     source: hosted
     version: "4.0.0-nullsafety.4"
   provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: provider
       url: "https://pub.dartlang.org"
@@ -623,6 +630,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.4"
+  sizer:
+    dependency: "direct main"
+    description:
+      name: sizer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.8"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -704,7 +718,7 @@ packages:
       name: swagger_dart_code_generator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.6+1"
+    version: "1.6.6+2"
   sync_http:
     dependency: transitive
     description:

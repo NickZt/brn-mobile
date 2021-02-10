@@ -37,6 +37,7 @@ class _UsernameInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginState>(
+
       buildWhen: (previous, current) => previous.username != current.username,
       builder: (context, state) {
         return TextField(

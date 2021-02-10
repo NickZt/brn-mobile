@@ -5,8 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:brn_mobile/home/home.dart';
 import 'package:brn_mobile/login/login.dart';
 import 'package:brn_mobile/splash/splash.dart';
+import 'package:sizer/sizer_util.dart';
 import 'package:user_repository/user_repository.dart';
-import 'package:brn_mobile/authentication/authentication.dart';
+import 'package:brn_mobile/Bloc/authentication.dart';
+
+import 'Routes/routes.dart';
+import 'colorTheme/color.dart';
+import 'tocheckndel/firstpagewidget.dart';
 // import 'package:swagger/api.dart';
 
 class App extends StatelessWidget {
@@ -41,22 +46,50 @@ class App extends StatelessWidget {
                   'Hello, its errors result ${value.body.toString()},  ${value.body.toString()}')
             }
         });
-    return RepositoryProvider.value(
-      value: authenticationRepository,
-      child: BlocProvider(
-        create: (_) => AuthenticationBloc(
-          authenticationRepository: authenticationRepository,
-          userRepository: userRepository,
-            client: client,
-        ),
-        child: AppView(),
-      ),
+    ThemeData base = ThemeData.light();
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return OrientationBuilder(
+          builder: (context, orientation) {
+            SizerUtil().init(constraints, orientation);
+            return MaterialApp(
+              home: Scaffold(
+                backgroundColor: Colors.white,
+              ),
+              debugShowCheckedModeBanner: false,
+              theme: _appTheme(base),
+              initialRoute: RoutingConstants.splashScreen,
+              //gatewayScreen,
+              onGenerateRoute: RouterPage.ongenerateRoute,
+            );
+          },
+        );
+      },
     );
   }
+
+  ThemeData _appTheme(ThemeData base) {
+    return base.copyWith(
+        primaryColor: AppColor.primaryColor,
+        canvasColor: AppColor.drawerBGColor);
+  }
 }
+// return RepositoryProvider.value(
+//   value: authenticationRepository,
+//   child: BlocProvider(
+//     create: (_) => AuthenticationBloc(
+//       authenticationRepository: authenticationRepository,
+//       userRepository: userRepository,
+//       client: client,
+//     ),
+//     child: AppView(),
+//   ),
+// );
+//
+
 // providers: [
 // ChangeNotifierProvider(create: (context) => ProductBloc()),
-
 
 class AppView extends StatefulWidget {
   @override
@@ -71,32 +104,58 @@ class _AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: _navigatorKey,
-      builder: (context, child) {
-        return BlocListener<AuthenticationBloc, AuthenticationState>(
-          listener: (context, state) {
-            switch (state.status) {
-              case AuthenticationStatus.authenticated:
-                _navigator.pushAndRemoveUntil<void>(
-                  HomePage.route(),
-                  (route) => false,
-                );
-                break;
-              case AuthenticationStatus.unauthenticated:
-                _navigator.pushAndRemoveUntil<void>(
-                  LoginPage.route(),
-                  (route) => false,
-                );
-                break;
-              default:
-                break;
-            }
-          },
-          child: child,
+        navigatorKey: _navigatorKey,
+        builder: (context, child) {
+          return BlocListener<AuthenticationBloc, AuthenticationState>(
+            listener: (context, state) {
+              switch (state.status) {
+                case AuthenticationStatus.authenticated:
+                  _navigator.pushAndRemoveUntil<void>(
+                    HomePage.route(),
+                    (route) => false,
+                  );
+                  break;
+                case AuthenticationStatus.unauthenticated:
+                  _navigator.pushAndRemoveUntil<void>(
+                    LoginPage.route(),
+                    (route) => false,
+                  );
+                  break;
+                default:
+                  break;
+              }
+            },
+            child: child,
+          );
+        },
+        initialRoute: '/',
+        routes: {
+          '/': (ctx) => SplashScreenWidgetStL(),
+          '/firstpage': (ctx) => FirstPage(),
+          '/login': (ctx) =>
+              BlocListener<AuthenticationBloc, AuthenticationState>(
+                listener: (context, state) {
+                  switch (state.status) {
+                    case AuthenticationStatus.authenticated:
+                      _navigator.pushAndRemoveUntil<void>(
+                        HomePage.route(),
+                        (route) => false,
+                      );
+                      break;
+                    case AuthenticationStatus.unauthenticated:
+                      _navigator.pushAndRemoveUntil<void>(
+                        LoginPage.route(),
+                        (route) => false,
+                      );
+                      break;
+                    default:
+                      break;
+                  }
+                },
+              ),
+        }
+        // onGenerateRoute: (_) => SplashScreenWidgetStL.route()
+        // SplashPage.route(),
         );
-      },
-      onGenerateRoute: (_) => SplashScreenWidgetStL.route()
-          // SplashPage.route(),
-    );
   }
 }
