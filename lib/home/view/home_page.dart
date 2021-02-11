@@ -9,11 +9,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userId ="ghggkglkjyhuy BlocProvider.of<LoginBloc>(context,listen: false).add(const LoginSubmitted());";
-        // BlocProvider.of<AuthenticationBloc>(context)
-        // .state
-        // .user
-        // .id;
+    final userId =
+        "ghg-gkglk-jyhuy BlocProvider.of<LoginBloc>(context,listen: false).add(const LoginSubmitted());";
+        // BlocProvider.of<AuthenticationBloc>(context).state.user.id;
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
       body: Center(
@@ -24,8 +22,7 @@ class HomePage extends StatelessWidget {
             RaisedButton(
               child: const Text('Logout'),
               onPressed: () {
-                BlocProvider.of<AuthenticationBloc>(context)
-                    .add(AuthenticationLogoutRequested());
+                BlocProvider.of<AuthenticationBloc>(context).add(AuthenticationLogoutRequested());
               },
             ),
           ],

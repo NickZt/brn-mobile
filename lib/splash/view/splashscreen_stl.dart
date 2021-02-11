@@ -25,7 +25,7 @@ class SplashScreenWidgetStL extends StatelessWidget {
         SplashScreen(
           seconds: 2,
           backgroundColor: Colors.white,
-          navigateAfterSeconds:  RoutingConstants.firstPageScreen ,
+          navigateAfterSeconds: RoutingConstants.firstPageScreen,
           //preinit at this point
           // navigateAfterFuture:  ,
           // App(
@@ -40,12 +40,11 @@ class SplashScreenWidgetStL extends StatelessWidget {
           children: <Widget>[
             Center(
               child: Container(
-                height: 150,
-                width: 150,
+                height: 392,
+                width: 800,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/logo.png"),
-                        fit: BoxFit.contain)),
+                    image:
+                        DecorationImage(image: AssetImage("assets/logo.png"), fit: BoxFit.contain)),
               ),
             ),
             Center(
