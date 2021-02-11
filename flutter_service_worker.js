@@ -3,24 +3,27 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "6b761a67b46350b869dc0aa45a20a694",
+  "assets/AssetManifest.json": "31d7ee3935b5db26ef5fa94f4b6da015",
 "assets/assets/fonts/Montserrat-Medium.ttf": "a98626e1aef6ceba5dfc1ee7112e235a",
 "assets/assets/fonts/Montserrat-SemiBold.ttf": "c88cecbffad6d8e731fd95de49561ebd",
 "assets/assets/fonts/OpenSans-Regular.ttf": "d7d5d4588a9f50c99264bc12e4892a7c",
 "assets/assets/images/Coolkidsstayinghome1.png": "4a74c41d8b37ab76ba65cab5dfb42b52",
 "assets/assets/images/Ellipse76.png": "1d44b9fa43ef9095a615e2735a924f80",
-"assets/FontManifest.json": "67e778c60565e790c27b7f9fecd8116c",
+"assets/assets/loading.flr": "3bc3c9af4221e42db3a7c1cdb177e37e",
+"assets/assets/logo.png": "4a74c41d8b37ab76ba65cab5dfb42b52",
+"assets/FontManifest.json": "bbfdb7860547958aacde4c20d85c625c",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "75b778c4f7818db2ba9ea2851038d3ce",
+"assets/NOTICES": "d9ab46a940d7e0933a53ca48d847d2eb",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "831eb40a2d76095849ba4aecd4340f19",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "a126c025bab9a1b4d8ac5534af76a208",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "d80ca32233940ebadc5ae5372ccd67f9",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "9302b24563b12d21f2b38e592a7621bf",
-"/": "9302b24563b12d21f2b38e592a7621bf",
-"main.dart.js": "a506d20a455443f2d35b2a70a59ed9fc",
+"index.html": "0ee2efdf181146a46646fa3491d94e60",
+"/": "0ee2efdf181146a46646fa3491d94e60",
+"main.dart.js": "3b7794fdbcb1efc9c26d2b45b1966401",
 "manifest.json": "198045e854d93426505a3a1252c69316",
 "version.json": "c9a79f9934ad713457ac53fd685976f1"
 };
