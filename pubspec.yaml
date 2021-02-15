@@ -66,3 +66,7 @@ flutter:
       fonts:
         - asset: assets/fonts/OpenSans-Regular.ttf
           weight: 400
+flutter_intl:
+  enabled: true
+  localizely:
+    project_id: 0eeeb81d-e58b-4c4a-8ae4-2ee75229c294
