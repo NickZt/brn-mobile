@@ -12,6 +12,8 @@ import 'package:brn_mobile/Bloc/authentication.dart';
 import 'Routes/routes.dart';
 import 'colorTheme/color.dart';
 import 'tocheckndel/firstpagewidget.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart';
 // import 'package:swagger/api.dart';
 
 class App extends StatelessWidget {
@@ -31,20 +33,13 @@ class App extends StatelessWidget {
 
   @override
   build(BuildContext context) {
-    var loginCred = LoginDto(
-        grantType: '1', password: '***', username: 'nickifomir@gmail.com');
+    var loginCred = LoginDto(grantType: '1', password: '***', username: 'nickifomir@gmail.com');
     var getResult = client.loginUsingPost(loginDto: loginCred);
     getResult.then((value) => {
           if (value.isSuccessful)
-            {
-              print(
-                  'Hello, its result ${value.body.accessToken},  ${value.body.toString()}')
-            }
+            {print('Hello, its result ${value.body.accessToken},  ${value.body.toString()}')}
           else
-            {
-              print(
-                  'Hello, its errors result ${value.body.toString()},  ${value.body.toString()}')
-            }
+            {print('Hello, its errors result ${value.body.toString()},  ${value.body.toString()}')}
         });
     ThemeData base = ThemeData.light();
 
@@ -54,6 +49,13 @@ class App extends StatelessWidget {
           builder: (context, orientation) {
             SizerUtil().init(constraints, orientation);
             return MaterialApp(
+              localizationsDelegates: [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
               home: Scaffold(
                 backgroundColor: Colors.white,
               ),
@@ -70,9 +72,7 @@ class App extends StatelessWidget {
   }
 
   ThemeData _appTheme(ThemeData base) {
-    return base.copyWith(
-        primaryColor: AppColor.primaryColor,
-        canvasColor: AppColor.drawerBGColor);
+    return base.copyWith(primaryColor: AppColor.primaryColor, canvasColor: AppColor.drawerBGColor);
   }
 }
 // return RepositoryProvider.value(
@@ -132,8 +132,7 @@ class _AppViewState extends State<AppView> {
         routes: {
           '/': (ctx) => SplashScreenWidgetStL(),
           '/firstpage': (ctx) => FirstPage(),
-          '/login': (ctx) =>
-              BlocListener<AuthenticationBloc, AuthenticationState>(
+          '/login': (ctx) => BlocListener<AuthenticationBloc, AuthenticationState>(
                 listener: (context, state) {
                   switch (state.status) {
                     case AuthenticationStatus.authenticated:

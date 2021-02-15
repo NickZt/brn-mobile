@@ -1,0 +1,13 @@
+config_version: 1.0 # Only 1.0 available
+project_id: 0eeeb81d-e58b-4c4a-8ae4-2ee75229c294
+file_type: flutter_arb
+upload:
+  files: # List of files for upload to Localizely. Usually it is just one file used for the main locale
+    - file: lib/l10n/intl_ru_RU.arb
+      locale_code: ru_RU
+download:
+  files: # List of files for download from Localizely.
+    - file: lib/l10n/intl_en.arb
+      locale_code: en
+    - file: lib/l10n/intl_ru_RU.arb
+      locale_code: ru_RU

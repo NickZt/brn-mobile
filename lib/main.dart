@@ -30,6 +30,7 @@ void main() {
           ),
         ),
       ],
+
       child: App(
         authenticationRepository: authenticationRepository,
         userRepository: userRepository,
