@@ -21,6 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-
+    "FirstPage_brainup_title" : MessageLookupByLibrary.simpleMessage("BrainUP - онлайн занятия для детей и взрослых"),
+    "FirstPage_button_enter" : MessageLookupByLibrary.simpleMessage("ВХОД"),
+    "FirstPage_button_start" : MessageLookupByLibrary.simpleMessage("Начать"),
+    "FirstPage_subtitle" : MessageLookupByLibrary.simpleMessage("Наш сайт - это платформа интерактивных упражнений для взрослых\n\'                                             \' и детей от семи лет  с когнитивными проблемами восприятия речи \n\'                                             \' которая помогает тренировать способности слушать и понимать")
   };
 }

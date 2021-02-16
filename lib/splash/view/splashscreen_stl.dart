@@ -6,7 +6,6 @@ import 'package:user_repository/user_repository.dart';
 
 import 'package:brn_mobile/generated_code/api_docs.swagger.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';

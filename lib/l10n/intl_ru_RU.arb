@@ -1,1 +1,23 @@
-{}
+{
+  "@@locale": "ru-RU",
+  "FirstPage_brainup_title": "BrainUP - онлайн занятия для детей и взрослых",
+  "@FirstPage_brainup_title": {},
+  "FirstPage_button_enter": "ВХОД",
+  "@FirstPage_button_enter": {},
+  "FirstPage_button_start": "Начать",
+  "@FirstPage_button_start": {},
+  "FirstPage_subtitle": "Это платформа интерактивных упражнений для взрослых и детей от семи лет  с когнитивными проблемами восприятия речи  который помогает тренировать способности слушать и понимать",
+  "@FirstPage_subtitle": {},
+  "FirstPage_advantage_adv_box_1_sub_title": "Первая бесплатная онлайн \n'                           ' программа для взрослых и детей с \n'                           'когнитивными проблемами восприятия речи. Все наши \n'                           'занятия рассчитаны на возраст детей от 7 лет и старше.\n'                           'Уже сейчас программа насчитывает более 20 разных тем\n'                           ' по которым вы можете начать заниматься уже сейчас. А дальше\n'                           ' будет еще больше - мы планируем постоянно расширять список\n'                           ' наших тем.",
+  "FirstPage_advantage_adv_box_1_title": "BRAINUP",
+  "FirstPage_team_page_title": "Наша команда",
+  "FirstPage_team_page_sub_title": "Мы собрались все вместе, чтобы сделать вашу жизнь проще!",
+  "FirstPage_team_adv_box_1_sub_title": "Senior Software Engineer, Epam",
+  "FirstPage_team_adv_box_2_title": "Мошникова Елена",
+  "FirstPage_team_adv_box_2_sub_title": "Senior Software Engineer, Epam",
+  "FirstPage_team_adv_box_3_title": "Чуркина Ирина",
+  "FirstPage_team_adv_box_3_sub_title": "Senior Software Engineer, Epam",
+  "FirstPage_team_adv_box_4_title": "Miguel Osorio",
+  "FirstPage_team_adv_box_4_sub_title": "Lead Software Engineer, Epam",
+  "FirstPage_team_page_footer": "Присоединяйтесь к нам"
+}

@@ -1,6 +1,10 @@
+import 'package:brn_mobile/tocheckndel/widget1.dart';
 import 'package:flutter/material.dart';
+
+import 'firstpageadvantagewidget.dart';
+import 'firstpagespecialistpage.dart';
+import 'firstpageteampage.dart';
 import 'firstpagewidget.dart';
-import 'widget1.dart';
 
 class FirstPage extends StatelessWidget {
   static Route route() {
@@ -15,7 +19,7 @@ class FirstPage extends StatelessWidget {
         final double height = MediaQuery.of(context).size.height;
         final double width = MediaQuery.of(context).size.width;
         return Container(
-            width: width,
+            // width: width,
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 10, top: 10),
             // decoration: BoxDecoration(
@@ -36,8 +40,20 @@ class FirstPage extends StatelessWidget {
                     constraints: BoxConstraints(minHeight: height, maxWidth: width),
                     child: Flexible(
                       fit: FlexFit.tight,
-                      child: new GroupAboutWOCamonWidgetSTTLes(),
-                    ))
+                      child: new FirstPage1Advantage(),//GroupAboutWOCamonWidgetSTTLes(),
+                    )),
+                ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: height, maxWidth: width),
+                    child: Flexible(
+                      fit: FlexFit.tight,
+                      child: new FirstPageSpecialistWidget(),//GroupAboutWOCamonWidgetSTTLes(),
+                    )),
+                ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: height, maxWidth: width),
+                    child: Flexible(
+                      fit: FlexFit.tight,
+                      child: new FirstPageTeamWidget(),//GroupAboutWOCamonWidgetSTTLes(),
+                    )),
               ]),
             ));
       }),

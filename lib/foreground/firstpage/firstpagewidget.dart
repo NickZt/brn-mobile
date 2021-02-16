@@ -1,11 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:brn_mobile/Routes/routes.dart';
+import 'package:brn_mobile/generated/l10n.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'widget1.dart';
-import 'widget2.dart';
-import 'widget3.dart';
 class FirstPageWidget extends StatelessWidget {
   final CarouselController _controller = CarouselController();
 
@@ -21,7 +19,7 @@ class FirstPageWidget extends StatelessWidget {
               top: 520,
               left: 164,
               child: Text(
-                'ВХОД',
+                S.of(context).FirstPage_button_enter,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     color: Color.fromRGBO(0, 0, 0, 1),
@@ -55,9 +53,7 @@ class FirstPageWidget extends StatelessWidget {
                                       fit: BoxFit.fill,
                                       alignment: Alignment.center,
                                       child: AutoSizeText(
-                                        'Наш сайт - это платформа интерактивных упражнений для взрослых\n'
-                                            ' и детей от семи лет  с когнитивными проблемами восприятия речи \n'
-                                            ' которая помогает тренировать способности слушать и понимать',
+                                        S.of(context).FirstPage_subtitle,
                                         maxLines: 3,
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
@@ -76,7 +72,7 @@ class FirstPageWidget extends StatelessWidget {
                                       fit: BoxFit.fitWidth,
                                       alignment: Alignment.topLeft,
                                       child: AutoSizeText(
-                                        'BrainUP - онлайн занятия для детей и взрослых',
+                                        S.of(context).FirstPage_brainup_title,
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             color: Color.fromRGBO(0, 0, 0, 1),
@@ -110,7 +106,7 @@ class FirstPageWidget extends StatelessWidget {
                                       //     fontWeight: FontWeight.normal,
                                       //     height: 1
                                       // ) ,
-                                      child: Text('Начать'),
+                                      child: Text(S.of(context).FirstPage_button_start),
                                     )),
                               )
                             ]))),
