@@ -44,7 +44,7 @@ class SplashScreenWidgetStL extends StatelessWidget {
                 width: 800,
                 decoration: BoxDecoration(
                     image:
-                        DecorationImage(image: AssetImage("assets/logo.png"), fit: BoxFit.contain)),
+                        DecorationImage(image: AssetImage("logo.png"), fit: BoxFit.contain)),
               ),
             ),
             Center(
@@ -52,7 +52,7 @@ class SplashScreenWidgetStL extends StatelessWidget {
                 width: 200,
                 height: 200,
                 child: FlareActor(
-                  "assets/loading.flr",
+                  "loading.flr",
                   animation: "loading",
                   fit: BoxFit.contain,
                 ),

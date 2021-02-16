@@ -11,7 +11,7 @@ import 'package:brn_mobile/Bloc/authentication.dart';
 
 import 'Routes/routes.dart';
 import 'colorTheme/color.dart';
-import 'tocheckndel/firstpagewidget.dart';
+import 'tocheckndel/firstpage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
 // import 'package:swagger/api.dart';
@@ -73,88 +73,5 @@ class App extends StatelessWidget {
 
   ThemeData _appTheme(ThemeData base) {
     return base.copyWith(primaryColor: AppColor.primaryColor, canvasColor: AppColor.drawerBGColor);
-  }
-}
-// return RepositoryProvider.value(
-//   value: authenticationRepository,
-//   child: BlocProvider(
-//     create: (_) => AuthenticationBloc(
-//       authenticationRepository: authenticationRepository,
-//       userRepository: userRepository,
-//       client: client,
-//     ),
-//     child: AppView(),
-//   ),
-// );
-//
-
-// providers: [
-// ChangeNotifierProvider(create: (context) => ProductBloc()),
-
-class AppView extends StatefulWidget {
-  @override
-  _AppViewState createState() => _AppViewState();
-}
-
-class _AppViewState extends State<AppView> {
-  final _navigatorKey = GlobalKey<NavigatorState>();
-
-  NavigatorState get _navigator => _navigatorKey.currentState;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        navigatorKey: _navigatorKey,
-        builder: (context, child) {
-          return BlocListener<AuthenticationBloc, AuthenticationState>(
-            listener: (context, state) {
-              switch (state.status) {
-                case AuthenticationStatus.authenticated:
-                  _navigator.pushAndRemoveUntil<void>(
-                    HomePage.route(),
-                    (route) => false,
-                  );
-                  break;
-                case AuthenticationStatus.unauthenticated:
-                  _navigator.pushAndRemoveUntil<void>(
-                    LoginPage.route(),
-                    (route) => false,
-                  );
-                  break;
-                default:
-                  break;
-              }
-            },
-            child: child,
-          );
-        },
-        initialRoute: '/',
-        routes: {
-          '/': (ctx) => SplashScreenWidgetStL(),
-          '/firstpage': (ctx) => FirstPage(),
-          '/login': (ctx) => BlocListener<AuthenticationBloc, AuthenticationState>(
-                listener: (context, state) {
-                  switch (state.status) {
-                    case AuthenticationStatus.authenticated:
-                      _navigator.pushAndRemoveUntil<void>(
-                        HomePage.route(),
-                        (route) => false,
-                      );
-                      break;
-                    case AuthenticationStatus.unauthenticated:
-                      _navigator.pushAndRemoveUntil<void>(
-                        LoginPage.route(),
-                        (route) => false,
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                },
-              ),
-        }
-        // onGenerateRoute: (_) => SplashScreenWidgetStL.route()
-        // SplashPage.route(),
-        );
   }
 }

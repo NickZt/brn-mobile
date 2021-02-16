@@ -51,7 +51,7 @@ class SplashScreenWidget extends StatelessWidget {
                 width: 150,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/logo.png"),
+                        image: AssetImage("logo.png"),
                         fit: BoxFit.contain
                     )
                 ),

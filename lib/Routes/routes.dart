@@ -1,7 +1,7 @@
 import 'package:brn_mobile/home/view/home_page.dart';
 import 'package:brn_mobile/login/view/login_page.dart';
 import 'package:brn_mobile/splash/view/splashscreen_stl.dart';
-import 'package:brn_mobile/tocheckndel/firstpagewidget.dart';
+import 'package:brn_mobile/tocheckndel/firstpage.dart';
 import 'package:flutter/material.dart';
 
 class RouterPage {

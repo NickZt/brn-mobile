@@ -6,71 +6,7 @@ import 'package:sizer/sizer.dart';
 import 'widget1.dart';
 import 'widget2.dart';
 import 'widget3.dart';
-
-class FirstPage extends StatelessWidget {
-  static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => FirstPage());
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Welcome to BrainUp')),
-      body: Container(child: Builder(builder: (context) {
-        final double height = MediaQuery.of(context).size.height;
-        final double width = MediaQuery.of(context).size.width;
-        return CarouselSlider(
-          options: CarouselOptions(
-            height: height,
-            // initialPage: 1,
-            enableInfiniteScroll: false,
-            viewportFraction: 1.0,
-            enlargeCenterPage: true,
-            //  pageSnapping: true,
-          ),
-          items: <Widget>[
-            Expanded(
-              child: SingleChildScrollView(
-                // scrollDirection: Axis.vertical,
-                scrollDirection: Axis.vertical,
-                // shrinkWrap: true,
-
-                child: Column(children: <Widget>[
-                  SizedBox(
-                    height: height,
-                    width: width,
-                    child: new _FirstPageWidget(),
-                  ),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(minHeight: height, maxWidth: width),
-                    child: new GroupAboutWOCamonWidgetSTTLes(),
-                  )
-                ]),
-              ),
-            ),
-            Flexible(
-              fit: FlexFit.loose,
-              child: _FirstPageWidget(),
-            ),
-            SizedBox(
-              height: height,
-              width: width,
-              child: Flexible(
-                fit: FlexFit.loose,
-                child: GroupAboutWOCamonWidgetSTTLes(),
-              ),
-            ),
-            GroupAboutWOCamonWidgetSTTLes(),
-            Flexible(fit: FlexFit.loose, child: Group1scrWidgetSTL()),
-            GroupSc1WidgetSTF(),
-          ],
-        );
-      })),
-    );
-  }
-}
-
-class _FirstPageWidget extends StatelessWidget {
+class FirstPageWidget extends StatelessWidget {
   final CarouselController _controller = CarouselController();
 
   @override
@@ -120,8 +56,8 @@ class _FirstPageWidget extends StatelessWidget {
                                       alignment: Alignment.center,
                                       child: AutoSizeText(
                                         'Наш сайт - это платформа интерактивных упражнений для взрослых\n'
-                                        ' и детей от семи лет  с когнитивными проблемами восприятия речи \n'
-                                        ' которая помогает тренировать способности слушать и понимать',
+                                            ' и детей от семи лет  с когнитивными проблемами восприятия речи \n'
+                                            ' которая помогает тренировать способности слушать и понимать',
                                         maxLines: 3,
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
@@ -129,7 +65,7 @@ class _FirstPageWidget extends StatelessWidget {
                                             fontFamily: 'Open Sans',
                                             fontSize: 18,
                                             letterSpacing:
-                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            0 /*percentages not used in flutter. defaulting to zero*/,
                                             fontWeight: FontWeight.normal,
                                             height: 1.5555555555555556),
                                       ))),
@@ -147,7 +83,7 @@ class _FirstPageWidget extends StatelessWidget {
                                             fontFamily: 'Montserrat',
                                             fontSize: 42,
                                             letterSpacing:
-                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            0 /*percentages not used in flutter. defaulting to zero*/,
                                             fontWeight: FontWeight.normal,
                                             height: 1),
                                       ))),
@@ -187,8 +123,7 @@ class _FirstPageWidget extends StatelessWidget {
                   height: 406,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/images/Coolkidsstayinghome1.png'),
-                        fit: BoxFit.fitWidth),
+                        image: AssetImage('Coolkidsstayinghome1.png'), fit: BoxFit.fitWidth),
                   ))),
         ]));
   }

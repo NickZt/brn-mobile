@@ -53,10 +53,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/logo.png
-    - assets/loading.flr
-    - assets/images/Ellipse76.png
-    - assets/images/Coolkidsstayinghome1.png
+    - logo.png
+    - loading.flr
+    - Ellipse76.png
+    - Coolkidsstayinghome1.png
   fonts:
     - family: Montserrat
       fonts:
