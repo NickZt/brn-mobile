@@ -1,11 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:brn_mobile/Routes/routes.dart';
 import 'package:brn_mobile/generated/l10n.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+
 class FirstPageWidget extends StatelessWidget {
-  final CarouselController _controller = CarouselController();
 
   @override
   Widget build(BuildContext context) {
