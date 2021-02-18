@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:brn_mobile/home/home.dart';
 import 'package:brn_mobile/login/login.dart';
 import 'package:brn_mobile/splash/splash.dart';
-import 'package:sizer/sizer_util.dart';
+import 'package:sizer_mod/sizer_util.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:brn_mobile/Bloc/authentication.dart';
 
